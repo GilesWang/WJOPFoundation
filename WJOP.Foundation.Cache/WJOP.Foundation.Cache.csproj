@@ -65,8 +65,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CacheOutputAttribute.cs" />
+    <Compile Include="Common\RedisConfigEntity.cs" />
     <Compile Include="IModelQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redis\RedisConfiguration.cs" />
+    <Compile Include="SDK\CacheAspectEx.cs" />
     <Compile Include="SDK\CacheProviderFactory.cs" />
     <Compile Include="SDK\CacheResult.cs" />
     <Compile Include="SDK\CacheTypeEnum.cs" />
@@ -77,6 +80,7 @@
     <Compile Include="SDK\ICacheResult.cs" />
     <Compile Include="SDK\KeyGen.cs" />
     <Compile Include="SDK\LocalCache.cs" />
+    <Compile Include="SDK\ParamValidate.cs" />
     <Compile Include="SDK\RedisCache.cs" />
     <Compile Include="SDK\SafeBucket.cs" />
     <Compile Include="SDK\Status.cs" />

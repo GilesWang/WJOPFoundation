@@ -58,6 +58,7 @@
     <Compile Include="ProxyBase.cs" />
     <Compile Include="StatusCodeEnum.cs" />
     <Compile Include="Utility\AppContext.cs" />
+    <Compile Include="Utility\Aspect.cs" />
     <Compile Include="Utility\DebugUtil.cs" />
     <Compile Include="Utility\JsonSerializerUtil.cs" />
     <Compile Include="WGOPResponseBase.cs" />
