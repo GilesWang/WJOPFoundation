@@ -96,7 +96,7 @@ namespace WJOP.Foundation.Location
             }
             return data;
         }
-        private string GetAppUri(AppNameEnum appName)
+        public string GetAppUri(AppNameEnum appName)
         {
             string empty = string.Empty;
             try

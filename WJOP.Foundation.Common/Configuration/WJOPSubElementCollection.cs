@@ -9,6 +9,15 @@ namespace WJOP.Foundation.Common.Configuration
 {
     public class WJOPSubElementCollection : ConfigurationElementCollection
     {
+        [ConfigurationProperty("cachetype", IsRequired = false)]
+        public string CacheType
+        {
+            get
+            {
+                return base["cachetype"] as string;
+            }
+        }
+
         [ConfigurationProperty("bucketname", IsRequired = false)]
         public string BucketName
         {

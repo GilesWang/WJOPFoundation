@@ -78,6 +78,8 @@ namespace WJOP.Foundation.Common.Utility
             AppContext._onOffDic.Add("DalMeasurementEnabled", dalMeasurementEnabledFlag);
             AppContext._onOffDic.Add("IsDebug", debugFlag);
             AppContext._infoDic.Add("AppKey", config.AppKey);
+            AppContext._infoDic.Add("CacheType", (string.IsNullOrWhiteSpace(config.CacheCollection.CacheType) ? "couchbase" : config.CacheCollection.CacheType));
+            AppContext._infoDic.Add("CacheConfigString", config.CacheCollection.GetValue("CacheConfigString"));
             if (string.IsNullOrWhiteSpace(config.Location))
             {
                 str = "http://wjop-location.vipabc.com/";
@@ -418,6 +420,22 @@ namespace WJOP.Foundation.Common.Utility
                 return AppContext._infoDic["BucketPassword"];
             }
         }
+        public static string CacheConfigString
+        {
+            get
+            {
+                return AppContext._infoDic["CacheConfigString"];
+            }
+        }
+
+        public static string CacheType
+        {
+            get
+            {
+                return AppContext._infoDic["CacheType"];
+            }
+        }
+
         #endregion
     }
 }

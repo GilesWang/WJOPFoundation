@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08001B91-FD6C-4DAD-88FE-3F222932CB67}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WJOP.Foundation.Cache</RootNamespace>
+    <AssemblyName>WJOP.Foundation.Cache</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Couchbase.NetClient, Version=2.4.6.0, Culture=neutral, PublicKeyToken=05e9c6b5a9ec94c2, processorArchitecture=MSIL">
+      <HintPath>..\packages\CouchbaseNetClient.2.4.6\lib\net45\Couchbase.NetClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.3\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CacheOutputAttribute.cs" />
+    <Compile Include="Common\RedisConfigEntity.cs" />
+    <Compile Include="IModelQuery.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Redis\RedisConfiguration.cs" />
+    <Compile Include="SDK\CacheAspectEx.cs" />
+    <Compile Include="SDK\CacheProviderFactory.cs" />
+    <Compile Include="SDK\CacheResult.cs" />
+    <Compile Include="SDK\CacheTypeEnum.cs" />
+    <Compile Include="SDK\CouchbaseCache.cs" />
+    <Compile Include="SDK\CouchbaseConfigEntity.cs" />
+    <Compile Include="SDK\CouchbaseConfiguration.cs" />
+    <Compile Include="SDK\ICache.cs" />
+    <Compile Include="SDK\ICacheResult.cs" />
+    <Compile Include="SDK\KeyGen.cs" />
+    <Compile Include="SDK\LocalCache.cs" />
+    <Compile Include="SDK\ParamValidate.cs" />
+    <Compile Include="SDK\RedisCache.cs" />
+    <Compile Include="SDK\SafeBucket.cs" />
+    <Compile Include="SDK\Status.cs" />
+    <Compile Include="TimeAttributes\CacheOutputUntilAttribute.cs" />
+    <Compile Include="Time\CacheTime.cs" />
+    <Compile Include="Time\ShortTime.cs" />
+    <Compile Include="Time\SpecifiedTime.cs" />
+    <Compile Include="Time\ThisDay.cs" />
+    <Compile Include="Time\ThisYear.cs" />
+    <Compile Include="Time\ThisMonth.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WGOP.Foundation.Location\WJOP.Foundation.Location.csproj">
+      <Project>{6d721ffc-ab38-4bc2-bc5a-0beed84ef12d}</Project>
+      <Name>WJOP.Foundation.Location</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WJOP.Foundation.Common\WJOP.Foundation.Common.csproj">
+      <Project>{7f0a5f40-cd32-4368-afac-fe2d1191b655}</Project>
+      <Name>WJOP.Foundation.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
