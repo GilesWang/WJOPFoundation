@@ -51,7 +51,7 @@ namespace WJOP.Foundation.Log
             _localLogQueue = new WorkerQueue<LogContent>(_writeLogBatchSize, _writeLogCoolDownTime,_localQueueSize, "LogSDKQueue");
             _localLogQueue.Flush += new Action<object, List<LogContent>>(WriteLog);
         }
-        private void Write(LogContent logDoc)
+        public void Write(LogContent logDoc)
         {
             _localLogQueue.Enqueue(logDoc);
         }

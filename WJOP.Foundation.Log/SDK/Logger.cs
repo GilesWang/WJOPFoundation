@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WJOP.Foundation.Log.Common;
+using WJOP.Foundation.Log.SDK.Extensions;
 
 namespace WJOP.Foundation.Log.SDK
 {
@@ -22,242 +23,248 @@ namespace WJOP.Foundation.Log.SDK
 
         public void Debug(Exception exception)
         {
-            throw new NotImplementedException();
+            Debug(null, exception.ToLogText(), null);
         }
 
         public void Debug(string content)
         {
-            throw new NotImplementedException();
+            Debug(null, content, null);
         }
 
         public void Debug(string title, Exception exception)
         {
-            throw new NotImplementedException();
+            Debug(title, exception.ToLogText(), null);
         }
 
         public void Debug(string title, string content)
         {
-            throw new NotImplementedException();
+            Debug(title, content, null);
         }
 
         public void Debug(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Debug(null, exception.ToLogText(), tags);
         }
 
         public void Debug(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Debug(null, content, tags);
         }
 
         public void Debug(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Debug(title, exception.ToLogText(), tags);
         }
 
         public void Debug(string title, string content, IDictionary<string, Tag> tags)
         {
             LogContent logContent = LogContent.CreateLog(LogLevelEnum.Debug, _logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
 
         public void Error(Exception exception)
         {
-            throw new NotImplementedException();
+            Error(null, exception.ToLogText(), null);
         }
 
         public void Error(string content)
         {
-            throw new NotImplementedException();
+            Error(null, content, null);
         }
 
         public void Error(string title, Exception exception)
         {
-            throw new NotImplementedException();
+            Error(title, exception.ToLogText(), null);
         }
 
         public void Error(string title, string content)
         {
-            throw new NotImplementedException();
+            Error(title, content, null);
         }
 
         public void Error(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Error(null, exception.ToLogText(), tags);
         }
 
         public void Error(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Error(null, content, tags);
         }
 
         public void Error(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Error(title, exception.ToLogText(), tags);
         }
 
         public void Error(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Error, this._logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
 
         public void Fatal(Exception exception)
         {
-            throw new NotImplementedException();
+            Fatal(null, exception.ToLogText(), null);
         }
 
         public void Fatal(string content)
         {
-            throw new NotImplementedException();
+            Fatal(null, content, null);
         }
 
         public void Fatal(string title, string content)
         {
-            throw new NotImplementedException();
+            Fatal(title, content, null);
         }
 
         public void Fatal(string title, Exception exception)
         {
-            throw new NotImplementedException();
+            Fatal(title, exception.ToLogText(), null);
         }
 
         public void Fatal(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Fatal(null, exception.ToLogText(), tags);
         }
 
         public void Fatal(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Fatal(null, content, tags);
         }
 
         public void Fatal(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Fatal(title, exception.ToLogText(), tags);
         }
 
         public void Fatal(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Fatal, this._logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
 
         public void Info(Exception exception)
         {
-            throw new NotImplementedException();
+            Info(null, exception.ToLogText(), null);
         }
 
         public void Info(string content)
         {
-            throw new NotImplementedException();
-        }
-
-        public void Info(string title, Exception exception)
-        {
-            throw new NotImplementedException();
+            Info(null, content, null);
         }
 
         public void Info(string title, string content)
         {
-            throw new NotImplementedException();
+            Info(title, content, null);
+        }
+
+        public void Info(string title, Exception exception)
+        {
+            Info(title, exception.ToLogText(), null);
         }
 
         public void Info(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Info(null, exception.ToLogText(), tags);
         }
 
         public void Info(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Info(null, content, tags);
         }
 
         public void Info(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Info(title, exception.ToLogText(), tags);
         }
 
         public void Info(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Info, this._logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
 
         public void Trace(Exception exception)
         {
-            throw new NotImplementedException();
+            Trace(null, exception.ToLogText(), null);
         }
 
         public void Trace(string content)
         {
-            throw new NotImplementedException();
+            Trace(null, content, null);
         }
 
         public void Trace(string title, string content)
         {
-            throw new NotImplementedException();
+            Trace(title, content, null);
         }
 
         public void Trace(string title, Exception exception)
         {
-            throw new NotImplementedException();
+            Trace(title, exception.ToLogText(), null);
         }
 
         public void Trace(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Trace(null, exception.ToLogText(), tags);
         }
 
         public void Trace(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Trace(null, content, tags);
         }
 
         public void Trace(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Trace(title, exception.ToLogText(), tags);
         }
 
         public void Trace(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Trace, this._logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
 
         public void Warn(Exception exception)
         {
-            throw new NotImplementedException();
+            Warn(null, exception.ToLogText(), null);
         }
 
         public void Warn(string content)
         {
-            throw new NotImplementedException();
+            Warn(null, content, null);
         }
 
         public void Warn(string title, string content)
         {
-            throw new NotImplementedException();
+            Warn(title, content, null);
         }
 
         public void Warn(string title, Exception exception)
         {
-            throw new NotImplementedException();
+            Warn(title, exception.ToLogText(), null);
         }
 
         public void Warn(Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Warn(null, exception.ToLogText(), tags);
         }
 
         public void Warn(string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Warn(null, content, tags);
         }
 
         public void Warn(string title, Exception exception, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            Warn(title, exception.ToLogText(), tags);
         }
 
         public void Warn(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Warn, this._logProvider, title, content, tags);
+            LogHost.Instance.Write(logContent);
         }
     }
 }
