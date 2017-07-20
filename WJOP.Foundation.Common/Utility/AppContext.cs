@@ -284,7 +284,7 @@ namespace WJOP.Foundation.Common.Utility
                         }
                     }
                 }
-                catch (Exception exception)
+                catch
                 {
                     AppContext._macAddress = "UnknownMac";
                 }
