@@ -46,6 +46,7 @@ namespace WJOP.Foundation.Log
             _appKey = AppContext.AppKey;
             _writeLogBatchSize = AppContext.LogMaxMessageCount;
             _writeLogCoolDownTime = AppContext.LogSendFrequency;
+            _localQueueSize = AppContext.LogMaxQueueSize;
             _isWriteLocalLog = AppContext.WriteLocalFile;
             _localLogQueue = new WorkerQueue<LogContent>(_writeLogBatchSize, _writeLogCoolDownTime,_localQueueSize, "LogSDKQueue");
             _localLogQueue.Flush += new Action<object, List<LogContent>>(WriteLog);
