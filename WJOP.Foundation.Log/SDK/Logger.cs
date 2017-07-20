@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WJOP.Foundation.Log.Common;
 
 namespace WJOP.Foundation.Log.SDK
 {
@@ -56,7 +57,7 @@ namespace WJOP.Foundation.Log.SDK
 
         public void Debug(string title, string content, IDictionary<string, Tag> tags)
         {
-            throw new NotImplementedException();
+            LogContent logContent = LogContent.CreateLog(LogLevelEnum.Debug, _logProvider, title, content, tags);
         }
 
         public void Error(Exception exception)
