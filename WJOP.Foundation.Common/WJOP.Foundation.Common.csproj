@@ -38,6 +38,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -68,7 +69,8 @@
     <Compile Include="Utility\DebugUtil.cs" />
     <Compile Include="Utility\JsonSerializerUtil.cs" />
     <Compile Include="Utility\ParamterUtil.cs" />
-    <Compile Include="WGOPResponseBase.cs" />
+    <Compile Include="WJOPRequestContext.cs" />
+    <Compile Include="WJOPResponseBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
