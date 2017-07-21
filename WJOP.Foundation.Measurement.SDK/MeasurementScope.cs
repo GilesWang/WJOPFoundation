@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using WJOP.Foundation.Common;
 using WJOP.Foundation.Common.Utility;
 
@@ -60,6 +57,7 @@ namespace WJOP.Foundation.Measurement.SDK
             }
         }
 
+        #region Dispose
         public void Dispose()
         {
             this.Dispose(true);
@@ -73,10 +71,12 @@ namespace WJOP.Foundation.Measurement.SDK
                 GC.SuppressFinalize(this);
             }
         }
+
         ~MeasurementScope()
         {
             this.Dispose(false);
-        }
+        } 
+        #endregion
 
         private void BeginTrace()
         {
@@ -147,7 +147,6 @@ namespace WJOP.Foundation.Measurement.SDK
                 DebugUtil.LogException(exception);
             }
         }
-
         private void FillInDefaultTags()
         {
             this._userTags["method_name"] = this._scopeName;
@@ -165,7 +164,5 @@ namespace WJOP.Foundation.Measurement.SDK
                 strs["thread_id"] = id.ToString();
             }
         }
-
-
     }
 }

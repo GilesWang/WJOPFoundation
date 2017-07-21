@@ -13,6 +13,7 @@ namespace WJOP.Foundation.Measurement.SDK
 
         private string _metric;
 
+        #region ctor
         public MeasurementHelper(string metric)
         {
             ParamterUtil.CheckEmptyString("metric", metric);
@@ -25,7 +26,9 @@ namespace WJOP.Foundation.Measurement.SDK
             ParamterUtil.CheckEmptyString("db", db);
             this.Init(metric, db, rp);
         }
+        #endregion
 
+        #region Build Fields&Tags
         private static void BuildFields(List<Field> fieldList, string key, float value)
         {
             if (!string.IsNullOrEmpty(key))
@@ -65,7 +68,8 @@ namespace WJOP.Foundation.Measurement.SDK
                 };
                 tagList.Add(tag);
             }
-        }
+        } 
+        #endregion
 
         private void Init(string metric, string db, string rp)
         {
@@ -74,12 +78,13 @@ namespace WJOP.Foundation.Measurement.SDK
             this._metric = metric;
         }
 
+        #region MakePoint
         public MetricPoint MakePoint()
         {
             MetricPoint metricPoint = MakePoint(this._metric, this._db, this._rp);
             return metricPoint;
         }
-
+        
         public static MetricPoint MakePoint(string metric)
         {
             string measurementDB = AppContext.MeasurementDB;
@@ -91,13 +96,15 @@ namespace WJOP.Foundation.Measurement.SDK
             MetricPoint metricPoint = new MetricPoint(metric, db, rp);
             metricPoint.OnSubmit += new Action<MetricPoint>(WritePoint);
             return metricPoint;
-        }
+        } 
+        #endregion
 
         public static MeasurementScope NewScope(string methodName, IDictionary<string, string> tags = null)
         {
             return new MeasurementScope(methodName, tags);
         }
 
+        #region ReadPoints
         public static List<MetricSerie> ReadPoints(string query)
         {
             ParamterUtil.CheckEmptyString("query", query);
@@ -127,8 +134,10 @@ namespace WJOP.Foundation.Measurement.SDK
                 DebugUtil.LogException(exception);
             }
             return metricSeries;
-        }
+        } 
+        #endregion
 
+        #region WritePoint
         public static void WritePoint(MetricPoint point)
         {
             if (AppContext.MeasurementEnabled)
@@ -332,7 +341,7 @@ namespace WJOP.Foundation.Measurement.SDK
                     {
                         if (field.Value == null)
                         {
-                            BuildFields(metricPoint.Fields, field.Key, "TGOPInfluxDBNull");
+                            BuildFields(metricPoint.Fields, field.Key, "WJOPInfluxDBNull");
                         }
                         else if (field.Value is string)
                         {
@@ -363,5 +372,7 @@ namespace WJOP.Foundation.Measurement.SDK
                 }
             }
         }
+
+        #endregion
     }
 }
